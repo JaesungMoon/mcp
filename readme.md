@@ -9,11 +9,45 @@ from
 ## claude
 
 with desktop
-`/Users/{{user_name}}/Library/Application Support/Claude/claude_desktop_config.json`
 
 <https://modelcontextprotocol.io/introduction> url was updated. then, using below site.
 <https://www.claudemcp.com/docs/quickstart>
 
-```marmaid
-graph LR subgraph Your Computer A[Claude Desktop] <-->|MCP Protocol (Query and Result)| B(SQLite MCP Server) B <-->|Local Access (SQL Operation)| C[(SQLite Database ~/test.db)] end
+```mermaid
+graph LR;
+    A[Claude Desktop]<-->|MCP Protocol|B[SQLite MCP Server];
+    B<-->|Local Access|C[(SQLite Database ~/test.db)]
 ```
+
+```shell
+# Open the configuration file
+code ~/Library/Application\ Support/Claude/claude_desktop_config.json
+```
+
+```json
+{
+    "mcpServers": {
+      "sqlite": {
+        "command": "uvx",
+        "args": ["mcp-server-sqlite", 
+        "--db-path", 
+        "{{path_to_your}}/test.db"]
+      }
+    }
+}
+```
+
+restart application
+
+and input prompt
+
+`Can you connect to my SQLite database and tell me what products and their prices are?`
+
+run function below
+
+- list_tables
+- describe_table
+- read_quary
+
+uvx - python
+npx - node.js
