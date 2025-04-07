@@ -51,3 +51,21 @@ run function below
 
 uvx - python
 npx - node.js
+
+## cursor
+
+config path
+
+`~/.cursor/mcp.json`
+
+## mcp server store
+
+[smithery](https://smithery.ai/)
+
+build your own mcp server you can use mcp sdk with your native language like ts,py,java, etc.
+
+<https://github.com/modelcontextprotocol/python-sdk>
+uv
+
+<https://github.com/modelcontextprotocol/typescript-sdk>
+npm
